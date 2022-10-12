@@ -1,0 +1,25 @@
+{
+    "params": {
+        "model_name": "mobilenet",
+        "train_batch_size": 64,
+        "val_batch_size": 64,
+        "num_calib_epochs": 128,
+        "num_analyze_epochs": 64,
+        "num_combine_epochs": 64,
+        "module_list": [
+            "features.1",
+            "features.3",
+            "features.5",
+            "features.7",
+            "features.9"
+        ],
+        "weight_bitwidth": 4,
+        "activation_bitwidth": 8,
+        "min_nodes": 1,
+        "max_nodes": 1,
+        "n_gpus": 1,
+        "n_cpus": 20,
+        "memory": "60g",
+        "max_level": 4
+    }
+}

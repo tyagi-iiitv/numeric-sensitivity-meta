@@ -1,0 +1,17 @@
+load("@fbcode_macros//build_defs:python_unittest.bzl", "python_unittest")
+
+oncall("on_device_ai")
+
+python_unittest(
+    name = "sensitivity_test",
+    srcs = [
+        "sensitivity_test.py",
+    ],
+    py_version = ">3",
+    deps = [
+        "//caffe2:torch",
+        "//manifold/clients/python:manifold_client",
+        "//on_device_ai/odai/numeric_sensitivity:sensitivity_lib",
+        "//pytorch/vision:torchvision",
+    ],
+)

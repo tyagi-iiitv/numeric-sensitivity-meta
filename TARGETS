@@ -1,0 +1,34 @@
+load("@fbcode_macros//build_defs:python_library.bzl", "python_library")
+load("//fblearner/flow/projects:macros.bzl", "fblearner_flow_project_python_binary")
+
+oncall("on_device_ai")
+
+python_library(
+    name = "sensitivity_lib",
+    srcs = [
+        "example_analysis.py",
+        "utils.py",
+        "workflow.py",
+    ],
+    py_version = ">3",
+    deps = [
+        "fbsource//third-party/pypi/matplotlib:matplotlib",
+        "fbsource//third-party/pypi/numpy:numpy",
+        "fbsource//third-party/pypi/scikit-learn:scikit-learn",
+        "fbsource//third-party/pypi/tqdm:tqdm",
+        "//caffe2:torch",
+        "//caffe2/torch/distributed/launcher/fb:flow_launch",
+        "//fblearner/flow:api",
+        "//github/third-party/PyTorchLightning/pytorch-lightning:lib",
+        "//manifold/clients/python:manifold_client",
+        "//on_device_ai/Tools/data:data",
+        "//pytorch/vision:torchvision",
+    ],
+)
+
+fblearner_flow_project_python_binary(
+    name = "workflow",
+    deps = [
+        ":sensitivity_lib",
+    ],
+)

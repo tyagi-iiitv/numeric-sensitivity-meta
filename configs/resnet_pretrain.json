@@ -1,0 +1,24 @@
+{
+    "params": {
+        "model_name": "resnet",
+        "train_batch_size": 64,
+        "val_batch_size": 64,
+        "num_calib_epochs": 128,
+        "num_analyze_epochs": 64,
+        "num_combine_epochs": 64,
+        "module_list": [
+            "layer1",
+            "layer2",
+            "layer3",
+            "layer4"
+        ],
+        "weight_bitwidth": 4,
+        "activation_bitwidth": 8,
+        "min_nodes": 1,
+        "max_nodes": 1,
+        "n_gpus": 1,
+        "n_cpus": 20,
+        "memory": "60g",
+        "max_level": 4
+    }
+}
